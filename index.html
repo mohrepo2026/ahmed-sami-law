@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مكتب أحمد سامي للمحاماة والاستشارات القانونية</title>
-    <!-- خط تجوال من جوجل -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary-color: #1B365D; /* أزرق داكن كلاسيكي */
-            --secondary-color: #C5A059; /* ذهبي */
+            --primary-color: #1B365D;
+            --secondary-color: #C5A059;
             --light-bg: #F8F9FA;
             --text-color: #2D3748;
         }
@@ -77,7 +76,6 @@
             min-height: 70vh;
         }
 
-        /* إدارة التنقل بين الصفحات */
         .page {
             display: none;
         }
@@ -140,7 +138,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* تنسيق الحاسبة والنموذج */
         .calculator, .form-group {
             max-width: 600px;
             margin: 0 auto;
@@ -185,7 +182,6 @@
             font-size: 1.2rem;
         }
 
-        /* تنسيق زر الواتساب العائم */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -341,11 +337,10 @@
             </div>
         </div>
 
-        <!-- 5.5 قسم آراء وتقييمات العملاء -->
+        <!-- 5. آراء وتقييمات العملاء + نموذج إضافة التقييم -->
         <div id="testimonials" class="page">
             <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">ماذا يقول عملاؤنا عن خدماتنا؟</h2>
             
-            <!-- بطاقات آراء العملاء -->
             <div class="grid">
                 <div class="card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
@@ -395,7 +390,6 @@
             <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">حجز موعد استشارة</h2>
             <div class="calculator">
                 <form action="https://formspree.io/f/maenenvq" method="POST">
-                    
                     <div class="form-group">
                         <label>الاسم الكامل:</label>
                         <input type="text" name="name" required placeholder="أدخل اسمك الكريم">
@@ -422,7 +416,6 @@
             <h2 style="color: var(--primary-color); margin-bottom: 1.5rem; text-align: center;">معلومات التواصل والموقع</h2>
             
             <div class="grid">
-                <!-- كرت المعلومات -->
                 <div class="card">
                     <h3>📍 موقع المكتب</h3>
                     <p>عمان - شارع مكة - مجمع الأبراج القانونية - الطابق الرابع</p>
@@ -432,7 +425,6 @@
                     <p>🕒 <strong>ساعات العمل:</strong> الأحد - الخميس (09:00 ص - 05:00 م)</p>
                 </div>
 
-                <!-- خريطة Google Maps الخاصة بك -->
                 <div class="card" style="padding: 10px; overflow: hidden;">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6746.024254445274!2d35.906415210223855!3d32.284651908878075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c818b3cdb8557%3A0x837a663cfa761e1e!2z2YXYsdmD2LIg2LLZh9inINin2YTYq9mC2KfZgdmKINis2LHYtA!5e0!3m2!1sen!2sjo!4v1789922792763!5m2!1sen!2sjo" 
@@ -446,6 +438,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <!-- زر الواتساب العائم -->
@@ -464,7 +457,6 @@
     </footer>
 
     <script>
-        // تنقل الصفحات (Single Page Application Logic)
         function showPage(pageId) {
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.remove('active'));
@@ -478,7 +470,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // منطق حاسبة الأتعاب
         function calculateFee() {
             const type = document.getElementById('service-type').value;
             const amountGroup = document.getElementById('amount-group');
@@ -494,7 +485,6 @@
             } else if (type === 'case') {
                 amountGroup.style.display = 'block';
                 if (amountInput && amountInput > 0) {
-                    // حساب تقديري بنسبة 5% من قيمة المطالبة بحد أدنى 300 دينار
                     let estimatedFee = Math.max(300, Math.round(amountInput * 0.05));
                     resultBox.innerText = `التكلفة التقديرية للتمثيل القضائي: حوالي ${estimatedFee} دينار أردني`;
                 } else {
