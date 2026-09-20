@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مكتب الأستاذ أحمد سامي للمحاماة والاستشارات القانونية</title>
-    <!-- خط تجوال من Google Fonts -->
+    <title>مكتب أحمد سامي للمحاماة والاستشارات القانونية</title>
+    <!-- خط تجوال من جوجل -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary-color: #1A365D;
-            --secondary-color: #C5A059; /* لون ذهبي قانوني */
-            --bg-light: #F8FAFC;
-            --text-dark: #2D3748;
-            --white: #FFFFFF;
+            --primary-color: #1B365D; /* أزرق داكن كلاسيكي */
+            --secondary-color: #C5A059; /* ذهبي */
+            --light-bg: #F8F9FA;
+            --text-color: #2D3748;
         }
 
         * {
@@ -24,134 +23,116 @@
         }
 
         body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
+            background-color: var(--light-bg);
+            color: var(--text-color);
             line-height: 1.6;
         }
-/* تنسيق زر الواتساب العائم */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 25px;
-    left: 25px; /* يظهر في الزاوية السفلى اليسرى */
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-decoration: none;
-}
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
-}
-
-.whatsapp-icon {
-    width: 35px;
-    height: 35px;
-    fill: white;
-}
-        /* الهيدر وشريط التنقل */
         header {
             background-color: var(--primary-color);
-            color: var(--white);
+            color: white;
             padding: 1rem 2rem;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-size: 1.3rem;
-            font-weight: bold;
+            font-size: 1.5rem;
+            font-weight: 700;
             color: var(--secondary-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 20px;
+            gap: 1.5rem;
         }
 
         nav a {
-            color: var(--white);
+            color: white;
             text-decoration: none;
-            font-size: 1rem;
-            transition: color 0.3s;
             cursor: pointer;
+            transition: color 0.3s;
+            font-weight: 500;
         }
 
         nav a:hover, nav a.active {
             color: var(--secondary-color);
-            font-weight: bold;
         }
-        <li><a onclick="showPage('testimonials')" id="nav-testimonials">آراء العملاء</a></li>
 
-        /* المحتوى والصفحات */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 2rem auto;
             padding: 0 1rem;
+            min-height: 70vh;
         }
 
+        /* إدارة التنقل بين الصفحات */
         .page {
-            display: none; /* إخفاء جميع الصفحات افتراضياً */
-            animation: fadeIn 0.4s ease-in-out;
+            display: none;
         }
 
         .page.active {
-            display: block; /* إظهار الصفحة النشطة فقط */
+            display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* عناصر التصميم الكرتي */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color), #2B6CB0);
-            color: var(--white);
-            padding: 3rem 2rem;
-            border-radius: 12px;
             text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(rgba(27, 54, 93, 0.9), rgba(27, 54, 93, 0.9)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 8px;
             margin-bottom: 2rem;
         }
 
         .hero h1 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
             color: var(--secondary-color);
         }
 
+        .btn {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #b08d4a;
+        }
+
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
-            margin-top: 1.5rem;
         }
 
         .card {
-            background: var(--white);
+            background: white;
             padding: 1.5rem;
             border-radius: 8px;
-            border-right: 5px solid var(--secondary-color);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary-color);
         }
 
         .card h3 {
@@ -159,18 +140,20 @@
             margin-bottom: 0.5rem;
         }
 
-        /* الحاسبة النموذجية */
-        .calculator {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        /* تنسيق الحاسبة والنموذج */
+        .calculator, .form-group {
             max-width: 600px;
-            margin: auto;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .form-group {
-            margin-bottom: 1.2rem;
+            padding: 0;
+            box-shadow: none;
+            margin-bottom: 1rem;
         }
 
         .form-group label {
@@ -179,210 +162,188 @@
             font-weight: bold;
         }
 
-        .form-group select, .form-group input, .form-group textarea {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #CBD5E0;
-            border-radius: 6px;
+            padding: 0.75rem;
+            border: 1px solid #E2E8F0;
+            border-radius: 4px;
             font-size: 1rem;
-        }
-
-        .btn {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 6px;
-            font-size: 1rem;
-            cursor: pointer;
-            width: 100%;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background-color: #b08d4b;
         }
 
         .result-box {
             margin-top: 1.5rem;
             padding: 1rem;
-            background-color: #EBF8FF;
-            border: 1px solid #BEE3F8;
-            border-radius: 6px;
+            background-color: #EDF2F7;
+            border-radius: 4px;
             text-align: center;
-            font-size: 1.2rem;
             font-weight: bold;
             color: var(--primary-color);
         }
 
-        /* الفوتر */
-        footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            font-size: 0.9rem;
+        .stars {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
         }
 
-        /* تجاوب مع الشاشات الصغيرة */
+        /* تنسيق زر الواتساب العائم */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            left: 25px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .whatsapp-icon {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
         @media (max-width: 768px) {
-            header {
+            .header-container {
                 flex-direction: column;
-                gap: 10px;
+                gap: 1rem;
             }
             nav ul {
                 flex-wrap: wrap;
                 justify-content: center;
+                gap: 1rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- الهيدر وشريط القائمة -->
     <header>
-        <div class="logo">
-            <span>⚖️</span> مكتب الأستاذ أحمد سامي
+        <div class="header-container">
+            <div class="logo">مكتب أحمد سامي للمحاماة</div>
+            <nav>
+                <ul>
+                    <li><a onclick="showPage('home')" id="nav-home" class="active">الرئيسية</a></li>
+                    <li><a onclick="showPage('about')" id="nav-about">عن المكتب</a></li>
+                    <li><a onclick="showPage('services')" id="nav-services">خدماتنا</a></li>
+                    <li><a onclick="showPage('calculator')" id="nav-calculator">حاسبة الأتعاب</a></li>
+                    <li><a onclick="showPage('testimonials')" id="nav-testimonials">آراء العملاء</a></li>
+                    <li><a onclick="showPage('booking')" id="nav-booking">حجز موعد</a></li>
+                    <li><a onclick="showPage('contact')" id="nav-contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a onclick="showPage('home')" id="nav-home" class="active">الرئيسية</a></li>
-                <li><a onclick="showPage('about')" id="nav-about">عن المحامي</a></li>
-                <li><a onclick="showPage('services')" id="nav-services">مجالات الاختصاص</a></li>
-                <li><a onclick="showPage('calculator')" id="nav-calculator">حاسبة الأتعاب</a></li>
-                <li><a onclick="showPage('booking')" id="nav-booking">حجز موعد</a></li>
-                <li><a onclick="showPage('contact')" id="nav-contact">تواصل معنا</a></li>
-            </ul>
-        </nav>
     </header>
 
     <div class="container">
-
-        <!-- 1. الصفحة الرئيسية -->
+        
+        <!-- 1. الرئيسية -->
         <div id="home" class="page active">
             <div class="hero">
-                <h1>مكتب الأستاذ أحمد سامي للمحاماة والاستشارات القانونية</h1>
-                <p>نقدم خدمات قانونية متكاملة بمهنية عالية لحماية حقوقك ومصالحك</p>
+                <h1>الخبرة والنزاهة في خدمتكم</h1>
+                <p style="margin-bottom: 1.5rem;">نقدم أرفع مستويات الاستشارات القانونية وحماية حقوقك بأعلى درجات الاحترافية.</p>
+                <button class="btn" onclick="showPage('booking')">احجز استشارة الآن</button>
             </div>
+            
+            <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-color);">لماذا تختار مكتبنا؟</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>🎯 السرية والأمان</h3>
-                    <p>نلتزم بأعلى معايير السرية لحماية أسرار وقضايا عملائنا الكرام.</p>
+                    <h3>خبرة طويلة</h3>
+                    <p>أكثر من 15 عاماً من الخبرة في القضايا المدنية والتجارية والشرعية.</p>
                 </div>
                 <div class="card">
-                    <h3>⚖️ خبرة ممتدة</h3>
-                    <p>أكثر من 15 عاماً من الخبرة في الترافع وصياغة العقود والاستشارات التجارية.</p>
+                    <h3>سرية تامة</h3>
+                    <p>نحافظ على خصوصية معلومات جميع عملائنا وسريتها بأعلى درجات الأمان.</p>
                 </div>
                 <div class="card">
-                    <h3>⚡ الاستجابة السريعة</h3>
-                    <p>توفير الاستشارات الفورية والاستجابة لمتطلبات العملاء بدقة ومرونة.</p>
+                    <h3>استشارات دقيقة</h3>
+                    <p>حلول قانونية مبتكرة ومخصصة وفقاً للأنظمة واللوائح المعمول بها.</p>
                 </div>
             </div>
         </div>
 
-        <!-- 2. صفحة عن المحامي -->
+        <!-- 2. عن المكتب -->
         <div id="about" class="page">
-            <h2 style="color: var(--primary-color); margin-bottom: 1rem;">السيرة الذاتية والخبرات</h2>
-            <div class="card">
-                <h3>الأستاذ أحمد سامي - محامٍ ومستشار قانوني</h3>
-                <br>
-                <p><strong>المؤهل العلمي:</strong> ماجستير في القانون التجاري الدولي (الجامعة الأردنية).</p>
-                <p><strong>العضوية:</strong> عضو نقابة المحامين منذ عام 2010.</p>
-                <p><strong>الخبرة العملية:</strong> متخصص في قضايا المحاكم المدنية والتجارية، وصياغة عقود الشركات والتحكيم الدولي.</p>
+            <h2 style="color: var(--primary-color); margin-bottom: 1rem;">عن المحامي والمكتب</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <p>تأسس مكتب أحمد سامي للمحاماة ليكون منارة قانونية تقدم الخدمات والاستشارات للأفراد والشركات. نؤمن بأن العدالة وسيادة القانون هما الأساس في حفظ الحقوق.</p>
             </div>
+            <h3>رؤيتنا ورسالتنا</h3>
+            <p>تقديم خدمات قانونية متكاملة تتسم بالشفافية والسرعة في التنفيذ للوصول إلى أفضل النتائج القضائية لعملائنا.</p>
         </div>
 
-        <!-- 3. صفحة مجالات الاختصاص -->
+        <!-- 3. خدماتنا -->
         <div id="services" class="page">
-            <h2 style="color: var(--primary-color); margin-bottom: 1rem;">مجالات الاختصاص</h2>
+            <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">مجالات التخصص</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>🏢 القانون التجاري والشركات</h3>
-                    <p>تأسيس الشركات، تسجيل العلامات التجارية، وحماية الملكية الفكرية.</p>
+                    <h3>القضايا التجارية</h3>
+                    <p>تأسيس الشركات، صياغة العقود، ومتابعة النزاعات التجارية.</p>
                 </div>
                 <div class="card">
-                    <h3>⚖️ القضايا المدنية والعقارية</h3>
-                    <p>دعاوى التعويض، النزاعات العقارية، الإيجارات، وتصفية التركات.</p>
+                    <h3>القضايا المدنية</h3>
+                    <p>المطالبات المالية، تحصيل الديون، والنزاعات العقارية.</p>
                 </div>
                 <div class="card">
-                    <h3>💼 قضايا العمل والعمال</h3>
-                    <p>تمثيل أصحاب العمل والعمال في النزاعات العمالية وإعداد اللوائح الداخلية.</p>
+                    <h3>قانون العمل</h3>
+                    <p>تمثيل أصحاب العمل والعاملين وصياغة عقود العمل واللوائح الداخلية.</p>
                 </div>
                 <div class="card">
-                    <h3>📜 صياغة العقود</h3>
-                    <p>صياغة ومراجعة كافة العقود والاتفاقيات باللغتين العربية والإنجليزية.</p>
+                    <h3>الأحوال الشخصية</h3>
+                    <p>قضايا التركات، المواريث، والمسائل الشرعية المختلفة.</p>
                 </div>
             </div>
         </div>
 
-        <!-- 4. حاسبة الأتعاب التفاعلية -->
+        <!-- 4. حاسبة الأتعاب -->
         <div id="calculator" class="page">
-            <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">حاسبة تقدير أتعاب الاستشارات</h2>
+            <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">حاسبة الأتعاب التقديرية</h2>
             <div class="calculator">
                 <div class="form-group">
-                    <label>نوع الخدمة:</label>
-                    <select id="serviceType" onchange="calculateFee()">
-                        <option value="50">استشارة شفهية/حضورية (50 دينار)</option>
-                        <option value="100">استشارة مكتوبة / تقرير قانوني (100 دينار)</option>
-                        <option value="150">صياغة أو مراجعة عقد (150 دينار)</option>
-                        <option value="200">دراسة ملف قضية (200 دينار)</option>
+                    <label>نوع الخدمة القانونية:</label>
+                    <select id="service-type" onchange="calculateFee()">
+                        <option value="consultation">استشارة قانونية شفاهية</option>
+                        <option value="contract">صياغة أو مراجعة عقد</option>
+                        <option value="case">تمثيل قضائي (قضية)</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label>طريقة اللقاء:</label>
-                    <select id="meetingType" onchange="calculateFee()">
-                        <option value="0">عبر الإنترنت (Online)</option>
-                        <option value="20">حضوري في المكتب (+20 دينار)</option>
-                    </select>
+
+                <div class="form-group" id="amount-group" style="display: none;">
+                    <label>القيمة المالية للمطالبة / العقد (بالدينار):</label>
+                    <input type="number" id="claim-amount" placeholder="أدخل المبلغ" oninput="calculateFee()">
                 </div>
-                <div class="form-group">
-                    <label>درجة الاستعجال:</label>
-                    <select id="urgency" onchange="calculateFee()">
-                        <option value="0">عادي (خلال 3 أيام)</option>
-                        <option value="30">مستعجل (خلال 24 ساعة) (+30 دينار)</option>
-                        <option value="70">طارئ (نفس اليوم) (+70 دينار)</option>
-                    </select>
-                </div>
-                <div class="result-box" id="totalPrice">
+
+                <div class="result-box" id="result">
                     التكلفة التقديرية: 50 دينار أردني
                 </div>
             </div>
         </div>
 
-        <!-- 5. حجز موعد -->
-        <!-- 5. حجز موعد -->
-        <div id="booking" class="page">
-            <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">حجز موعد استشارة</h2>
-            <div class="calculator">
-                <!-- تم إضافة action و method وتعديل الخصائص المحدثة -->
-                <form action="https://formspree.io/f/maenenvq" method="POST">
-                    
-                    <div class="form-group">
-                        <label>الاسم الكامل:</label>
-                        <input type="text" name="name" required placeholder="أدخل اسمك الكريم">
-                    </div>
-                    <div class="form-group">
-                        <label>رقم الهاتف / الواتساب:</label>
-                        <input type="tel" name="phone" required placeholder="07XXXXXXXX">
-                    </div>
-                    <div class="form-group">
-                        <label>التاريخ المفضل:</label>
-                        <input type="date" name="date" required>
-                    </div>
-                    <div class="form-group">
-                        <label>تفاصيل الاستشارة:</label>
-                        <textarea name="message" rows="4" placeholder="اكتب نبذة مختصرة عن الاستشارة المطلوب تقديمها..."></textarea>
-                    </div>
-                    <button type="submit" class="btn">تأكيد طلب الحجز 📩</button>
-                </form>
-            </div>
-        </div>
-        <!-- 5.5 قسم آراء وتقييمات العملاء -->
+        <!-- 5. آراء وتقييمات العملاء -->
         <div id="testimonials" class="page">
             <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">ماذا يقول عملاؤنا عن خدماتنا؟</h2>
-            
             <div class="grid">
                 <div class="card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
@@ -407,7 +368,34 @@
             </div>
         </div>
 
-       <!-- 6. تواصل معنا -->
+        <!-- 6. حجز موعد (Formspree) -->
+        <div id="booking" class="page">
+            <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">حجز موعد استشارة</h2>
+            <div class="calculator">
+                <form action="https://formspree.io/f/maenenvq" method="POST">
+                    
+                    <div class="form-group">
+                        <label>الاسم الكامل:</label>
+                        <input type="text" name="name" required placeholder="أدخل اسمك الكريم">
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف / الواتساب:</label>
+                        <input type="tel" name="phone" required placeholder="07XXXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label>التاريخ المفضل:</label>
+                        <input type="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>تفاصيل الاستشارة:</label>
+                        <textarea name="message" rows="4" placeholder="اكتب نبذة مختصرة عن الاستشارة المطلوب تقديمها..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">تأكيد طلب الحجز 📩</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 7. تواصل معنا -->
         <div id="contact" class="page">
             <h2 style="color: var(--primary-color); margin-bottom: 1.5rem; text-align: center;">معلومات التواصل والموقع</h2>
             
@@ -425,7 +413,7 @@
                 <!-- خريطة Google Maps التفاعلية -->
                 <div class="card" style="padding: 10px; overflow: hidden;">
                     <iframe 
-                        src=<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6746.024254445274!2d35.906415210223855!3d32.284651908878075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c818b3cdb8557%3A0x837a663cfa761e1e!2z2YXYsdmD2LIg2LLZh9inINin2YTYq9mC2KfZgdmKINis2LHYtA!5e0!3m2!1sen!2sjo!4v1789922792763!5m2!1sen!2sjo" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13539.123456789!2d35.8575!3d31.9539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDU3JzE0LjAiTiAzNcKwNTEnMjcuMCJF!5e0!3m2!1sar!2sjo!4v1234567890" 
                         width="100%" 
                         height="280" 
                         style="border:0; border-radius: 6px;" 
@@ -437,52 +425,62 @@
             </div>
         </div>
 
+    </div>
+
+    <!-- زر الواتساب العائم -->
+    <a href="https://wa.me/962790000000?text=مرحباً،%20أود%20الاستفسار%20عن%20استشارة%20قانونية" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       title="تواصل معنا عبر الواتساب">
+        <svg viewBox="0 0 32 32" class="whatsapp-icon">
+            <path fill="currentColor" d="M16 2a13 13 0 0 0-11.3 19.5L3 29l7.7-1.6A13 13 0 1 0 16 2zm0 23.8a10.8 10.8 0 0 1-5.5-1.5l-.4-.2-4.6 1 1-4.5-.3-.4A10.8 10.8 0 1 1 16 25.8zm5.9-8.1c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.1-.8 1-.9 1.2-.3.2-.6.1a8 8 0 0 1-2.4-1.5 8.9 8.9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5a.4.4 0 0 0 0-.4c0-.1-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.8 6.4 6.4 0 0 0 1.4 3.4 14.6 14.6 0 0 0 5.6 5c2.3 1 2.8.8 3.3.8a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.2-.4-.3-.7-.5z"/>
+        </svg>
+    </a>
+
     <footer>
-        جميع الحقوق محفوظة © مكتب الأستاذ أحمد سامي للمحاماة والاستشارات القانونية
+        <p>جميع الحقوق محفوظة © مكتب أحمد سامي للمحاماة والاستشارات القانونية 2026</p>
     </footer>
 
-    <!-- JavaScript للربط والتنقل والتفاعل -->
     <script>
-        // دالة التنقل بين الصفحات
+        // تنقل الصفحات (Single Page Application Logic)
         function showPage(pageId) {
-            // إخفاء جميع الصفحات
             const pages = document.querySelectorAll('.page');
             pages.forEach(page => page.classList.remove('active'));
 
-            // إزالة حالة التفعيل من جميع أزرار القائمة
             const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => link.classList.remove('active'));
 
-            // إظهار الصفحة المطلوبة وتفعيل زر القائمة الخاص بها
             document.getElementById(pageId).classList.add('active');
             document.getElementById('nav-' + pageId).classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // دالة حساب أتعاب الاستشارة
+        // منطق حاسبة الأتعاب
         function calculateFee() {
-            const service = parseInt(document.getElementById('serviceType').value);
-            const meeting = parseInt(document.getElementById('meetingType').value);
-            const urgency = parseInt(document.getElementById('urgency').value);
+            const type = document.getElementById('service-type').value;
+            const amountGroup = document.getElementById('amount-group');
+            const amountInput = document.getElementById('claim-amount').value;
+            const resultBox = document.getElementById('result');
 
-            const total = service + meeting + urgency;
-            document.getElementById('totalPrice').innerText = `التكلفة التقديرية: ${total} دينار أردني`;
-        }
-
-        // دالة إرسال نموذج الحجز
-        function submitForm(event) {
-            event.preventDefault();
-            alert('شكراً لك! تم استلام طلب الحجز بنجاح وسنقوم بالتواصل معك لتأكيده.');
+            if (type === 'consultation') {
+                amountGroup.style.display = 'none';
+                resultBox.innerText = "التكلفة التقديرية: 50 دينار أردني";
+            } else if (type === 'contract') {
+                amountGroup.style.display = 'none';
+                resultBox.innerText = "التكلفة التقديرية: تبدأ من 150 دينار أردني";
+            } else if (type === 'case') {
+                amountGroup.style.display = 'block';
+                if (amountInput && amountInput > 0) {
+                    // حساب تقديري بنسبة 5% من قيمة المطالبة بحد أدنى 300 دينار
+                    let estimatedFee = Math.max(300, Math.round(amountInput * 0.05));
+                    resultBox.innerText = `التكلفة التقديرية للتمثيل القضائي: حوالي ${estimatedFee} دينار أردني`;
+                } else {
+                    resultBox.innerText = "الرجاء إدخال قيمة المطالبة الحسابية.";
+                }
+            }
         }
     </script>
-    <!-- زر الواتساب العائم -->
-<a href="https://wa.me/962772297795?text=مرحباً،%20أود%20الاستفسار%20عن%20استشارة%20قانونية" 
-   class="whatsapp-float" 
-   target="_blank" 
-   rel="noopener noreferrer"
-   title="تواصل معنا عبر الواتساب">
-    <svg viewBox="0 0 32 32" class="whatsapp-icon">
-        <path fill="currentColor" d="M16 2a13 13 0 0 0-11.3 19.5L3 29l7.7-1.6A13 13 0 1 0 16 2zm0 23.8a10.8 10.8 0 0 1-5.5-1.5l-.4-.2-4.6 1 1-4.5-.3-.4A10.8 10.8 0 1 1 16 25.8zm5.9-8.1c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.1-.8 1-.9 1.2-.3.2-.6.1a8 8 0 0 1-2.4-1.5 8.9 8.9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5a.4.4 0 0 0 0-.4c0-.1-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.8 6.4 6.4 0 0 0 1.4 3.4 14.6 14.6 0 0 0 5.6 5c2.3 1 2.8.8 3.3.8a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.2-.4-.3-.7-.5z"/>
-    </svg>
-</a>
 </body>
 </html>
