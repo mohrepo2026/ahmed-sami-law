@@ -341,9 +341,11 @@
             </div>
         </div>
 
-        <!-- 5. آراء وتقييمات العملاء -->
+        <!-- 5.5 قسم آراء وتقييمات العملاء -->
         <div id="testimonials" class="page">
             <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">ماذا يقول عملاؤنا عن خدماتنا؟</h2>
+            
+            <!-- بطاقات آراء العملاء -->
             <div class="grid">
                 <div class="card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
@@ -365,6 +367,26 @@
                     <h4 style="color: var(--primary-color);">— د. عمر الحنيطي</h4>
                     <span style="font-size: 0.85rem; color: #718096;">قضية مدنية</span>
                 </div>
+            </div>
+
+            <!-- نموذج إضافة رأي جديد -->
+            <div class="calculator" style="margin-top: 2rem;">
+                <h3 style="color: var(--primary-color); text-align: center; margin-bottom: 1rem;">أضف تقييمك لخدماتنا</h3>
+                <form action="https://formspree.io/f/maenenvq" method="POST">
+                    <div class="form-group">
+                        <label>الاسم:</label>
+                        <input type="text" name="client_name" required placeholder="أدخل اسمك الكريـم">
+                    </div>
+                    <div class="form-group">
+                        <label>نوع الخدمة المقدمة:</label>
+                        <input type="text" name="service_type" placeholder="مثال: استشارة تجارية">
+                    </div>
+                    <div class="form-group">
+                        <label>رأيك في الخدمة:</label>
+                        <textarea name="review" rows="3" required placeholder="اكتب تجربتك مع المكتب..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">إرسال التقييم ⭐️</button>
+                </form>
             </div>
         </div>
 
