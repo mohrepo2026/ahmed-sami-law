@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتب الدكتور المحامي يونس المحاسنة للمحاماة والاستشارات القانونية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1B365D;
+            --secondary-color: #C5A059;
+            --light-bg: #F8F9FA;
+            --text-color: #2D3748;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            min-height: 70vh;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(rgba(27, 54, 93, 0.9), rgba(27, 54, 93, 0.9)), url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .btn {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #b08d4a;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .calculator, .form-group {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            padding: 0;
+            box-shadow: none;
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #E2E8F0;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .result-box {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #EDF2F7;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stars {
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            left: 25px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .whatsapp-icon {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">مكتب الدكتور يونس المحاسنة للمحاماة</div>
+            <nav>
+                <ul>
+                    <li><a onclick="showPage('home')" id="nav-home" class="active">الرئيسية</a></li>
+                    <li><a onclick="showPage('about')" id="nav-about">عن المكتب</a></li>
+                    <li><a onclick="showPage('services')" id="nav-services">خدماتنا</a></li>
+                    <li><a onclick="showPage('calculator')" id="nav-calculator">حاسبة الأتعاب</a></li>
+                    <li><a onclick="showPage('testimonials')" id="nav-testimonials">آراء العملاء</a></li>
+                    <li><a onclick="showPage('booking')" id="nav-booking">حجز موعد</a></li>
+                    <li><a onclick="showPage('contact')" id="nav-contact">تواصل معنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- 1. الرئيسية -->
+        <div id="home" class="page active">
+            <div class="hero">
+                <h1>الخبرة والنزاهة في خدمتكم</h1>
+                <p style="margin-bottom: 1.5rem;">نقدم أرفع مستويات الاستشارات القانونية وحماية حقوقك بأعلى درجات الاحترافية.</p>
+                <button class="btn" onclick="showPage('booking')">احجز استشارة الآن</button>
+            </div>
+            
+            <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary-color);">لماذا تختار مكتبنا؟</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>خبرة طويلة</h3>
+                    <p>أكثر من 15 عاماً من الخبرة في القضايا المدنية والتجارية والشرعية.</p>
+                </div>
+                <div class="card">
+                    <h3>سرية تامة</h3>
+                    <p>نحافظ على خصوصية معلومات جميع عملائنا وسريتها بأعلى درجات الأمان.</p>
+                </div>
+                <div class="card">
+                    <h3>استشارات دقيقة</h3>
+                    <p>حلول قانونية مبتكرة ومخصصة وفقاً للأنظمة واللوائح المعمول بها.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. عن المكتب -->
+        <div id="about" class="page">
+            <h2 style="color: var(--primary-color); margin-bottom: 1rem;">عن المحامي والمكتب</h2>
+            <div class="card" style="margin-bottom: 1.5rem;">
+                <p>تأسس مكتب الدكتور المحامي يونس المحاسنة للمحاماة ليكون منارة قانونية تقدم الخدمات والاستشارات للأفراد والشركات. نؤمن بأن العدالة وسيادة القانون هما الأساس في حفظ الحقوق.</p>
+            </div>
+            <h3>رؤيتنا ورسالتنا</h3>
+            <p>تقديم خدمات قانونية متكاملة تتسم بالشفافية والسرعة في التنفيذ للوصول إلى أفضل النتائج القضائية لعملائنا.</p>
+        </div>
+
+        <!-- 3. خدماتنا -->
+        <div id="services" class="page">
+            <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">مجالات التخصص</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>القضايا التجارية</h3>
+                    <p>تأسيس الشركات، صياغة العقود، ومتابعة النزاعات التجارية.</p>
+                </div>
+                <div class="card">
+                    <h3>القضايا المدنية</h3>
+                    <p>المطالبات المالية، تحصيل الديون، والنزاعات العقارية.</p>
+                </div>
+                <div class="card">
+                    <h3>قانون العمل</h3>
+                    <p>تمثيل أصحاب العمل والعاملين وصياغة عقود العمل واللوائح الداخلية.</p>
+                </div>
+                <div class="card">
+                    <h3>الأحوال الشخصية</h3>
+                    <p>قضايا التركات، المواريث، والمسائل الشرعية المختلفة.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. حاسبة الأتعاب -->
+        <div id="calculator" class="page">
+            <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">حاسبة الأتعاب التقديرية</h2>
+            <div class="calculator">
+                <div class="form-group">
+                    <label>نوع الخدمة القانونية:</label>
+                    <select id="service-type" onchange="calculateFee()">
+                        <option value="consultation">استشارة قانونية شفاهية</option>
+                        <option value="contract">صياغة أو مراجعة عقد</option>
+                        <option value="case">تمثيل قضائي (قضية)</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="amount-group" style="display: none;">
+                    <label>القيمة المالية للمطالبة / العقد (بالدينار):</label>
+                    <input type="number" id="claim-amount" placeholder="أدخل المبلغ" oninput="calculateFee()">
+                </div>
+
+                <div class="result-box" id="result">
+                    التكلفة التقديرية: 50 دينار أردني
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. آراء وتقييمات العملاء + نموذج إضافة التقييم -->
+        <div id="testimonials" class="page">
+            <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">ماذا يقول عملاؤنا عن خدماتنا؟</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p style="margin: 1rem 0; font-style: italic;">"تعاملت مع المكتب في قضية تجارية معقدة، وكانت النتيجة ممتازة بفضل الاحترافية والمتابعة الدورية للتحركات القانونية."</p>
+                    <h4 style="color: var(--primary-color);">— م. خالد العبدالله</h4>
+                    <span style="font-size: 0.85rem; color: #718096;">استشارة تجارية وعقود</span>
+                </div>
+
+                <div class="card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p style="margin: 1rem 0; font-style: italic;">"دقة وسرعة في إعداد وصياغة عقود الشركة. أنصح بشدة بالتعامل مع الأستاذ أحمد لخبرته الواسعة."</p>
+                    <h4 style="color: var(--primary-color);">— أ. سارة الشوابكة</h4>
+                    <span style="font-size: 0.85rem; color: #718096;">تأسيس شركة واستشارات</span>
+                </div>
+
+                <div class="card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p style="margin: 1rem 0; font-style: italic;">"خدمة استشارة فورية ممتازة وتوضيح لكافة التفاصيل القانونية بشفافية مطلقـة قبل البدء في أي إجراء."</p>
+                    <h4 style="color: var(--primary-color);">— د. عمر الحنيطي</h4>
+                    <span style="font-size: 0.85rem; color: #718096;">قضية مدنية</span>
+                </div>
+               <div class="card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p style="margin: 1rem 0; font-style: italic;">"خدمة ممتازة واحترافية عالية في التعامل والدقة في المواعيد."</p>
+                    <h4 style="color: var(--primary-color);">— محمد المحاسنه</h4>
+                    <span style="font-size: 0.85rem; color: #718096;">استشارة قانونية</span>
+                </div>
+            </div>
+
+            <!-- نموذج إضافة رأي جديد -->
+            <div class="calculator" style="margin-top: 2rem;">
+                <h3 style="color: var(--primary-color); text-align: center; margin-bottom: 1rem;">أضف تقييمك لخدماتنا</h3>
+                <form action="https://formspree.io/f/maenenvq" method="POST">
+                    <div class="form-group">
+                        <label>الاسم:</label>
+                        <input type="text" name="client_name" required placeholder="أدخل اسمك الكريـم">
+                    </div>
+                    <div class="form-group">
+                        <label>نوع الخدمة المقدمة:</label>
+                        <input type="text" name="service_type" placeholder="مثال: استشارة تجارية">
+                    </div>
+                    <div class="form-group">
+                        <label>رأيك في الخدمة:</label>
+                        <textarea name="review" rows="3" required placeholder="اكتب تجربتك مع المكتب..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">إرسال التقييم ⭐️</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 6. حجز موعد (Formspree) -->
+        <div id="booking" class="page">
+            <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">حجز موعد استشارة</h2>
+            <div class="calculator">
+                <form action="https://formspree.io/f/maenenvq" method="POST">
+                    <div class="form-group">
+                        <label>الاسم الكامل:</label>
+                        <input type="text" name="name" required placeholder="أدخل اسمك الكريم">
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف / الواتساب:</label>
+                        <input type="tel" name="phone" required placeholder="07XXXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label>التاريخ المفضل:</label>
+                        <input type="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>تفاصيل الاستشارة:</label>
+                        <textarea name="message" rows="4" placeholder="اكتب نبذة مختصرة عن الاستشارة المطلوب تقديمها..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">تأكيد طلب الحجز 📩</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 7. تواصل معنا -->
+        <div id="contact" class="page">
+            <h2 style="color: var(--primary-color); margin-bottom: 1.5rem; text-align: center;">معلومات التواصل والموقع</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>📍 موقع المكتب</h3>
+                    <p>عمان - شارع مكة - مجمع الأبراج القانونية - الطابق الرابع</p>
+                    <br>
+                    <p>📞 <strong>الهاتف:</strong> 00962790000000</p>
+                    <p>✉️ <strong>البريد الإلكتروني:</strong> info@ahmedsami-law.com</p>
+                    <p>🕒 <strong>ساعات العمل:</strong> الأحد - الخميس (09:00 ص - 05:00 م)</p>
+                </div>
+
+                <div class="card" style="padding: 10px; overflow: hidden;">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6746.024254445274!2d35.906415210223855!3d32.284651908878075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151c818b3cdb8557%3A0x837a663cfa761e1e!2z2YXYsdmD2LIg2LLZh9inINin2YTYq9mC2KfZgdmKINis2LHYtA!5e0!3m2!1sen!2sjo!4v1789922792763!5m2!1sen!2sjo" 
+                        width="100%" 
+                        height="280" 
+                        style="border:0; border-radius: 6px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- زر الواتساب العائم -->
+    <a href="https://wa.me/962790000000?text=مرحباً،%20أود%20الاستفسار%20عن%20استشارة%20قانونية" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       title="تواصل معنا عبر الواتساب">
+        <svg viewBox="0 0 32 32" class="whatsapp-icon">
+            <path fill="currentColor" d="M16 2a13 13 0 0 0-11.3 19.5L3 29l7.7-1.6A13 13 0 1 0 16 2zm0 23.8a10.8 10.8 0 0 1-5.5-1.5l-.4-.2-4.6 1 1-4.5-.3-.4A10.8 10.8 0 1 1 16 25.8zm5.9-8.1c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.1-.8 1-.9 1.2-.3.2-.6.1a8 8 0 0 1-2.4-1.5 8.9 8.9 0 0 1-1.7-2.1c-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5a.4.4 0 0 0 0-.4c0-.1-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.8 6.4 6.4 0 0 0 1.4 3.4 14.6 14.6 0 0 0 5.6 5c2.3 1 2.8.8 3.3.8a2.8 2.8 0 0 0 1.9-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.2-.4-.3-.7-.5z"/>
+        </svg>
+    </a>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © مكتب الدكتور المحامي يونس المحاسنة للمحاماة والاستشارات القانونية 2026</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            document.getElementById(pageId).classList.add('active');
+            document.getElementById('nav-' + pageId).classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function calculateFee() {
+            const type = document.getElementById('service-type').value;
+            const amountGroup = document.getElementById('amount-group');
+            const amountInput = document.getElementById('claim-amount').value;
+            const resultBox = document.getElementById('result');
+
+            if (type === 'consultation') {
+                amountGroup.style.display = 'none';
+                resultBox.innerText = "التكلفة التقديرية: 50 دينار أردني";
+            } else if (type === 'contract') {
+                amountGroup.style.display = 'none';
+                resultBox.innerText = "التكلفة التقديرية: تبدأ من 150 دينار أردني";
+            } else if (type === 'case') {
+                amountGroup.style.display = 'block';
+                if (amountInput && amountInput > 0) {
+                    let estimatedFee = Math.max(300, Math.round(amountInput * 0.05));
+                    resultBox.innerText = `التكلفة التقديرية للتمثيل القضائي: حوالي ${estimatedFee} دينار أردني`;
+                } else {
+                    } else {
+            resultBox.innerText = "الرجاء إدخال قيمة المطالبة الحسابية.";
+        }
+    }
+
+    // --- كود إرسال التقييم بدون مغادرة الصفحة ---
+    const form = document.getElementById("review-form");
+    if (form) {
+        form.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            const response = await fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+            if (response.ok) {
+                alert("شكراً لك! تم إرسال تقييمك بنجاح.");
+                form.reset();
+            } else {
+                alert("حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.");
+            }
+        });
+    }
+</script>
+</body>
+</html>
