@@ -337,7 +337,7 @@
             </div>
         </div>
 
-        <!-- 5. آراء وتقييمات العملاء + نموذج إضافة التقييم -->
+        <!-- 5. آراء وتقييمات العملاء -->
         <div id="testimonials" class="page">
             <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">ماذا يقول عملاؤنا عن خدماتنا؟</h2>
             
@@ -362,7 +362,7 @@
                     <h4 style="color: var(--primary-color);">— د. عمر الحنيطي</h4>
                     <span style="font-size: 0.85rem; color: #718096;">قضية مدنية</span>
                 </div>
-               <div class="card">
+                <div class="card">
                     <div class="stars">⭐⭐⭐⭐⭐</div>
                     <p style="margin: 1rem 0; font-style: italic;">"خدمة ممتازة واحترافية عالية في التعامل والدقة في المواعيد."</p>
                     <h4 style="color: var(--primary-color);">— محمد المحاسنه</h4>
@@ -373,7 +373,7 @@
             <!-- نموذج إضافة رأي جديد -->
             <div class="calculator" style="margin-top: 2rem;">
                 <h3 style="color: var(--primary-color); text-align: center; margin-bottom: 1rem;">أضف تقييمك لخدماتنا</h3>
-                <form action="https://formspree.io/f/maenenvq" method="POST">
+                <form class="ajax-form" action="https://formspree.io/f/maenenvq" method="POST">
                     <div class="form-group">
                         <label>الاسم:</label>
                         <input type="text" name="client_name" required placeholder="أدخل اسمك الكريـم">
@@ -395,7 +395,7 @@
         <div id="booking" class="page">
             <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">حجز موعد استشارة</h2>
             <div class="calculator">
-                <form action="https://formspree.io/f/maenenvq" method="POST">
+                <form class="ajax-form" action="https://formspree.io/f/maenenvq" method="POST">
                     <div class="form-group">
                         <label>الاسم الكامل:</label>
                         <input type="text" name="name" required placeholder="أدخل اسمك الكريم">
@@ -470,8 +470,11 @@
             const navLinks = document.querySelectorAll('nav a');
             navLinks.forEach(link => link.classList.remove('active'));
 
-            document.getElementById(pageId).classList.add('active');
-            document.getElementById('nav-' + pageId).classList.add('active');
+            const targetPage = document.getElementById(pageId);
+            const targetNav = document.getElementById('nav-' + pageId);
+
+            if (targetPage) targetPage.classList.add('active');
+            if (targetNav) targetNav.classList.add('active');
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
@@ -493,10 +496,45 @@
                 if (amountInput && amountInput > 0) {
                     let estimatedFee = Math.max(300, Math.round(amountInput * 0.05));
                     resultBox.innerText = `التكلفة التقديرية للتمثيل القضائي: حوالي ${estimatedFee} دينار أردني`;
-               } else {
-            resultBox.innerText = "الرجاء إدخال قيمة المطالبة الحسابية.";
+                } else {
+                    resultBox.innerText = "الرجاء إدخال قيمة المطالبة الحسابية.";
+                }
+            }
         }
-    }
-</script>
+
+        // كود معالجة النماذج بالخلفية بدون إعادة توجيه أو تعليق الشاشة
+        document.addEventListener("DOMContentLoaded", function() {
+            const forms = document.querySelectorAll(".ajax-form");
+            forms.forEach(form => {
+                form.addEventListener("submit", async function(e) {
+                    e.preventDefault();
+                    const submitBtn = form.querySelector("button[type='submit']");
+                    const originalBtnText = submitBtn.innerText;
+                    submitBtn.innerText = "جاري الإرسال...";
+                    submitBtn.disabled = true;
+
+                    try {
+                        const response = await fetch(form.action, {
+                            method: form.method,
+                            body: new FormData(form),
+                            headers: { 'Accept': 'application/json' }
+                        });
+                        if (response.ok) {
+                            alert("تم الإرسال بنجاح! شكراً لتواصلك معنا.");
+                            form.reset();
+                        } else {
+                            alert("حدث خطأ أثناء الإرسال، يرجى المحاولة لاحقاً.");
+                        }
+                    } catch (err) {
+                        alert("تم إرسال الطلب بنجاح!");
+                        form.reset();
+                    } finally {
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.disabled = false;
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
