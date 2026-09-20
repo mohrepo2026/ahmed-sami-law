@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتب الأستاذ أحمد سامي للمحاماة والاستشارات القانونية</title>
+    <!-- خط تجوال من Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1A365D;
+            --secondary-color: #C5A059; /* لون ذهبي قانوني */
+            --bg-light: #F8FAFC;
+            --text-dark: #2D3748;
+            --white: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* الهيدر وشريط التنقل */
+        header {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* المحتوى والصفحات */
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .page {
+            display: none; /* إخفاء جميع الصفحات افتراضياً */
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .page.active {
+            display: block; /* إظهار الصفحة النشطة فقط */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* عناصر التصميم الكرتي */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), #2B6CB0);
+            color: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-right: 5px solid var(--secondary-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* الحاسبة النموذجية */
+        .calculator {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group select, .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #CBD5E0;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .btn {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #b08d4b;
+        }
+
+        .result-box {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #EBF8FF;
+            border: 1px solid #BEE3F8;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* الفوتر */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        /* تجاوب مع الشاشات الصغيرة */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الهيدر وشريط القائمة -->
+    <header>
+        <div class="logo">
+            <span>⚖️</span> مكتب الأستاذ أحمد سامي
+        </div>
+        <nav>
+            <ul>
+                <li><a onclick="showPage('home')" id="nav-home" class="active">الرئيسية</a></li>
+                <li><a onclick="showPage('about')" id="nav-about">عن المحامي</a></li>
+                <li><a onclick="showPage('services')" id="nav-services">مجالات الاختصاص</a></li>
+                <li><a onclick="showPage('calculator')" id="nav-calculator">حاسبة الأتعاب</a></li>
+                <li><a onclick="showPage('booking')" id="nav-booking">حجز موعد</a></li>
+                <li><a onclick="showPage('contact')" id="nav-contact">تواصل معنا</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- 1. الصفحة الرئيسية -->
+        <div id="home" class="page active">
+            <div class="hero">
+                <h1>مكتب الأستاذ أحمد سامي للمحاماة والاستشارات القانونية</h1>
+                <p>نقدم خدمات قانونية متكاملة بمهنية عالية لحماية حقوقك ومصالحك</p>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <h3>🎯 السرية والأمان</h3>
+                    <p>نلتزم بأعلى معايير السرية لحماية أسرار وقضايا عملائنا الكرام.</p>
+                </div>
+                <div class="card">
+                    <h3>⚖️ خبرة ممتدة</h3>
+                    <p>أكثر من 15 عاماً من الخبرة في الترافع وصياغة العقود والاستشارات التجارية.</p>
+                </div>
+                <div class="card">
+                    <h3>⚡ الاستجابة السريعة</h3>
+                    <p>توفير الاستشارات الفورية والاستجابة لمتطلبات العملاء بدقة ومرونة.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. صفحة عن المحامي -->
+        <div id="about" class="page">
+            <h2 style="color: var(--primary-color); margin-bottom: 1rem;">السيرة الذاتية والخبرات</h2>
+            <div class="card">
+                <h3>الأستاذ أحمد سامي - محامٍ ومستشار قانوني</h3>
+                <br>
+                <p><strong>المؤهل العلمي:</strong> ماجستير في القانون التجاري الدولي (الجامعة الأردنية).</p>
+                <p><strong>العضوية:</strong> عضو نقابة المحامين منذ عام 2010.</p>
+                <p><strong>الخبرة العملية:</strong> متخصص في قضايا المحاكم المدنية والتجارية، وصياغة عقود الشركات والتحكيم الدولي.</p>
+            </div>
+        </div>
+
+        <!-- 3. صفحة مجالات الاختصاص -->
+        <div id="services" class="page">
+            <h2 style="color: var(--primary-color); margin-bottom: 1rem;">مجالات الاختصاص</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>🏢 القانون التجاري والشركات</h3>
+                    <p>تأسيس الشركات، تسجيل العلامات التجارية، وحماية الملكية الفكرية.</p>
+                </div>
+                <div class="card">
+                    <h3>⚖️ القضايا المدنية والعقارية</h3>
+                    <p>دعاوى التعويض، النزاعات العقارية، الإيجارات، وتصفية التركات.</p>
+                </div>
+                <div class="card">
+                    <h3>💼 قضايا العمل والعمال</h3>
+                    <p>تمثيل أصحاب العمل والعمال في النزاعات العمالية وإعداد اللوائح الداخلية.</p>
+                </div>
+                <div class="card">
+                    <h3>📜 صياغة العقود</h3>
+                    <p>صياغة ومراجعة كافة العقود والاتفاقيات باللغتين العربية والإنجليزية.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. حاسبة الأتعاب التفاعلية -->
+        <div id="calculator" class="page">
+            <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">حاسبة تقدير أتعاب الاستشارات</h2>
+            <div class="calculator">
+                <div class="form-group">
+                    <label>نوع الخدمة:</label>
+                    <select id="serviceType" onchange="calculateFee()">
+                        <option value="50">استشارة شفهية/حضورية (50 دينار)</option>
+                        <option value="100">استشارة مكتوبة / تقرير قانوني (100 دينار)</option>
+                        <option value="150">صياغة أو مراجعة عقد (150 دينار)</option>
+                        <option value="200">دراسة ملف قضية (200 دينار)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>طريقة اللقاء:</label>
+                    <select id="meetingType" onchange="calculateFee()">
+                        <option value="0">عبر الإنترنت (Online)</option>
+                        <option value="20">حضوري في المكتب (+20 دينار)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>درجة الاستعجال:</label>
+                    <select id="urgency" onchange="calculateFee()">
+                        <option value="0">عادي (خلال 3 أيام)</option>
+                        <option value="30">مستعجل (خلال 24 ساعة) (+30 دينار)</option>
+                        <option value="70">طارئ (نفس اليوم) (+70 دينار)</option>
+                    </select>
+                </div>
+                <div class="result-box" id="totalPrice">
+                    التكلفة التقديرية: 50 دينار أردني
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. حجز موعد -->
+        <div id="booking" class="page">
+            <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">حجز موعد استشارة</h2>
+            <div class="calculator">
+                <form onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label>الاسم الكامل:</label>
+                        <input type="text" required placeholder="أدخل اسمك الكريم">
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الهاتف / الواتساب:</label>
+                        <input type="tel" required placeholder="07XXXXXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label>التاريخ المفضل:</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>تفاصيل الاستشارة:</label>
+                        <textarea rows="4" placeholder="اكتب نبذة مختصرة عن الاستشارة المطلوب تقديمها..."></textarea>
+                    </div>
+                    <button type="submit" class="btn">تأكيد طلب الحجز 📩</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- 6. تواصل معنا -->
+        <div id="contact" class="page">
+            <h2 style="color: var(--primary-color); margin-bottom: 1rem;">معلومات التواصل</h2>
+            <div class="card">
+                <p>📍 <strong>العنوان:</strong> عمان - شارع مكة - مجمع الأبراج القانونية - الطابق الرابع.</p>
+                <br>
+                <p>📞 <strong>رقم الهاتف:</strong> 00962790000000</p>
+                <br>
+                <p>✉️ <strong>البريد الإلكتروني:</strong> info@ahmedsami-law.com</p>
+                <br>
+                <p>🕒 <strong>ساعات العمل:</strong> من الأحد إلى الخميس (09:00 صباحاً - 05:00 مساءً)</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        جميع الحقوق محفوظة © مكتب الأستاذ أحمد سامي للمحاماة والاستشارات القانونية
+    </footer>
+
+    <!-- JavaScript للربط والتنقل والتفاعل -->
+    <script>
+        // دالة التنقل بين الصفحات
+        function showPage(pageId) {
+            // إخفاء جميع الصفحات
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // إزالة حالة التفعيل من جميع أزرار القائمة
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // إظهار الصفحة المطلوبة وتفعيل زر القائمة الخاص بها
+            document.getElementById(pageId).classList.add('active');
+            document.getElementById('nav-' + pageId).classList.add('active');
+        }
+
+        // دالة حساب أتعاب الاستشارة
+        function calculateFee() {
+            const service = parseInt(document.getElementById('serviceType').value);
+            const meeting = parseInt(document.getElementById('meetingType').value);
+            const urgency = parseInt(document.getElementById('urgency').value);
+
+            const total = service + meeting + urgency;
+            document.getElementById('totalPrice').innerText = `التكلفة التقديرية: ${total} دينار أردني`;
+        }
+
+        // دالة إرسال نموذج الحجز
+        function submitForm(event) {
+            event.preventDefault();
+            alert('شكراً لك! تم استلام طلب الحجز بنجاح وسنقوم بالتواصل معك لتأكيده.');
+        }
+    </script>
+</body>
+</html>
