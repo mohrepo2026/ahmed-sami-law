@@ -791,32 +791,32 @@
             </div>
         </div>
 
-        <!-- 7. حجز موعد -->
-        <div id="booking" class="page">
-            <div class="section-header">
-                <h2>حجز موعد استشارة قانونية</h2>
+        <!-- 8. حجز موعد -->
+<div id="booking" class="page">
+    <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 1.5rem;">حجز موعد استشارة</h2>
+    <div class="calculator">
+        <form action="https://formspree.io/f/maenenvq" method="POST" id="booking-form">
+            <div class="form-group">
+                <label for="name">الاسم الكامل:</label>
+                <input type="text" id="name" name="name" required class="form-control" placeholder="أدخل اسمك الكريم">
             </div>
-            <div class="calculator">
-                <form id="booking-form" action="https://formspree.io/f/maenenvq" method="POST">
-                    <div class="form-group">
-                        <label>الاسم الكامل:</label>
-                        <input type="text" name="name" required placeholder="أدخل اسمك الكريم">
-                    </div>
-                    <div class="form-group">
-                        <label>رقم الهاتف / الواتساب:</label>
-                        <input type="tel" name="phone" required placeholder="07XXXXXXXX">
-                    </div>
-                    <div class="form-group">
-                        <label>تفاصيل الاستشارة أو موضوع القضية:</label>
-                        <textarea id="booking-details" name="message" rows="4" placeholder="اكتب نبذة مختصرة عن القضية لتجهيز الملف..."></textarea>
-                    </div>
-                    <button type="submit" id="submit-btn" class="btn-gold" style="width: 100%; justify-content: center;">تأكيد طلب الحجز 📩</button>
-                    
-                    <div id="form-status" style="margin-top: 1rem; display: none; padding: 1rem; border-radius: 6px; text-align: center; font-weight: bold;"></div>
-                </form>
-            </div>
-        </div>
 
+            <div class="form-group">
+                <label for="phone">رقم الهاتف / الواتساب:</label>
+                <input type="tel" id="phone" name="phone" required class="form-control" placeholder="07XXXXXXXX">
+            </div>
+
+            <div class="form-group">
+                <label for="booking-details">تفاصيل الاستشارة أو موضوع القضية:</label>
+                <textarea id="booking-details" name="message" rows="4" required class="form-control" placeholder="اكتب نبذة مختصرة عن القضية..."></textarea>
+            </div>
+
+            <button type="submit" class="btn" style="width: 100%;">
+                تأكيد طلب الحجز 📩
+            </button>
+        </form>
+    </div>
+</div>
         <!-- 8. تواصل معنا وخريطة الموقع -->
         <div id="contact" class="page">
             <div class="section-header">
